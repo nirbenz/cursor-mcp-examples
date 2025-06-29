@@ -36,10 +36,10 @@ git push
 
 ## 🎯 Real Results from This Repository
 
-This isn't a demo—it's a **production workflow** that built this presentation:
+This isn't a demo—it's a **production workflow** in action:
 
-- **Linear Issue**: [CML-14](https://linear.app/yourteam/issue/CML-14) - Automatically created
-- **GitHub PR**: [#1](https://github.com/yourusername/cursor-mcp-examples/pull/1) - Perfect description generated
+- **Linear Issue**: [ABC-123](https://linear.app/yourteam/issue/ABC-123) - Automatically created
+- **GitHub PR**: [#123](https://github.com/yourusername/cursor-mcp-examples/pull/123) - Perfect description generated
 - **Files Changed**: 47 files in major refactor
 - **Time**: 30 seconds total
 - **Quality**: Professional-grade commit messages and documentation
@@ -150,10 +150,8 @@ git add .
 
 ## 🎬 Presentation
 
-This repository includes the complete **conference presentation** used to demonstrate this workflow:
-- **Slides**: [`presentation/presentation.md`](presentation/presentation.md)
-- **Live demo**: All examples are from this actual repository
-- **Proof points**: Real PRs, issues, and measurable results
+This was used to create the presentation used to demonstrate this workflow:
+- **Slides**: **TODO**
 
 ## 🤝 Contributing
 

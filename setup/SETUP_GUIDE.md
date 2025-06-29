@@ -1,6 +1,6 @@
 # Setup Guide: Cursor + MCP Workflow
 
-This guide helps you replicate the exact workflow demonstrated in the presentation.
+This guide helps you set up the complete Cursor + MCP workflow.
 
 ## Prerequisites
 
@@ -172,7 +172,7 @@ Once set up, you'll have:
 > Create a Linear issue for this feature
 
 # Link existing issue
-> Link this PR to Linear issue CML-123
+> Link this PR to Linear issue ABC-123
 ```
 
 ## Support
@@ -185,4 +185,4 @@ If you encounter issues:
 
 ---
 
-**Result:** You'll have the same 30-second PR workflow demonstrated in the presentation! 
+**Result:** You'll have the same 30-second PR workflow shown in the examples! 

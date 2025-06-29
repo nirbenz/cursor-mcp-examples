@@ -8,7 +8,6 @@
         "examples",
         "scripts",
         "setup",
-        "presentation",
     ],
     "include": [
         "src"
