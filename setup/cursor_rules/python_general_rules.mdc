@@ -1,0 +1,76 @@
+---
+description: 
+globs: **/*.py
+alwaysApply: false
+---
+---
+description: For git, github, linear, pull requests that require project-specific information such as usernames, ids, and project names/scopes.
+globs: ["*.py"]
+alwaysApply: false
+---
+
+# Technology Stack
+- **Python:** 3.12.0+
+- **Deps:** `uv` 
+- **Lint:** `ruff` (formatting + linting)
+- **Typing:** Strict type hints with `typing` module
+- **Tests:** `pytest` with high coverage (90%+)
+- **ML/AI:** `langchain`, `pandas`, `numpy`, `scipy`; 
+- **Visualization:** `plotly`, `streamlit`
+- **Logging:** `loguru`
+- **Web Framework:** `fastapi` (modern) or `flask` (traditional)
+
+## Avoid List:
+- **ML/AI:** `transformers/diffusers`
+- **Visualization:** `matplotlib/seaborn`
+
+## When Documentation is Lacking
+**Prefer using `context7` when inserting new dependencies to code - to make sure you are up do date.**
+
+# Core Guidelines
+
+## Project Structure
+Project is structured like follows.
+**Use this when creating new files**
+```
+.
+├── configs
+│   ├── {main_configs.yaml}
+│   ├── models                          # defining llm models
+│   └── paths                           # project paths
+├── scripts                             # scripts for running things
+├── src
+│   └── {project_name}
+│       ├── apps                        # everything UI related
+│       ├── common                      # general utility code
+│       │   └── types.py                # project wide types
+│       │   └── errors.py               # project wide errors
+│       ├── lib                         # algo, logic, etc
+│       ├── llms                        # everything related to llm logic
+│       │   └── structured_types.py     # types related to LLM logic            
+│       └── prompts                     # LLM prompts; kept with code
+└── tests # test files
+```
+
+
+
+## Code Quality
+- **Typing:** All functions, methods, and class members must have type hints using most specific types
+- **Typing #2:** Use `Optional[Type]` instead of `Type | None`, `TypeVar` for generics, `Protocol` for duck typing
+- **Docstrings:** Google-style for all public functions, classes, and methods explaining purpose, parameters, returns, exceptions
+- **PEP 8 + Ruff:** Follow modern Python styling and naming conventions
+- **Exception Handling:** Use specific exceptions, create custom exception classes when needed, avoid bare `except` clauses
+- **Testing:** Comprehensive `pytest` tests covering edge cases, use fixtures and mocking
+
+## Architecture
+- **Modularity:** Single responsibility principle, choose between composition and inheritance where appropriate
+- **OOP:** When things are clearly objects, make them objects
+- **Async:** Use `async`/`await` for I/O-bound operations
+- **Configuration:** Use `hydra` + `omegaconf` for complex configs, environment variables for simple ones
+- **Imports:** Prefer absolute imports over relative imports
+
+## ML/AI Specific
+- **Experiment Management:** Use `hydra`/`omegaconf`/`yaml` for reproducible experiment configs
+- **Model Versioning:** Use `git-lfs` or `dvc` for checkpoints, when applicable
+- **Prompt Engineering:** Dedicated modules for LLM prompt templates with version control
+- **Context Management:** Efficient conversation context using `deques` or appropriate data structures- 

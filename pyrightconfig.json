@@ -1,0 +1,24 @@
+{
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.languageServer": "Pylance",
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.useLibraryCodeForTypes": true,
+    "exclude": [
+        "examples",
+        "scripts",
+        "setup",
+        "presentation",
+    ],
+    "include": [
+        "src"
+    ],
+    "executionEnvironments": [
+        {
+            "root": "./",
+            "extraPaths": [
+                "./src/"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,119 @@
+---
+description: When asked to interact with git, github or project management tooling (jira, linear, asana etc).
+globs: 
+alwaysApply: false
+---
+---
+description: When asked to do pull request, commit or any interaction with git, github or project management tooling (jira, linear, asana etc).
+globs: 
+alwaysApply: false
+---
+
+# Working with .git and github
+
+## Project Specific Information
+
+- "default_owner": "yourusername",
+- "default_repo": "cursor-mcp-examples"
+### For PRs
+- "assignees": "yourusername" (yourself)
+- "reviewers": "teammate"
+
+## With GitHub/Linear Integration
+### Automatic Linear Issue Management
+- When creating PR: Auto-update Linear issue status to "In Review"
+- When PR approved: Auto-update Linear issue to "Ready to Deploy" 
+- When PR merged: Auto-update Linear issue to "Done"
+- Auto-sync PR reviewers with Linear issue assignees
+
+### Enhanced PR Creation
+- Auto-populate PR description with Linear issue details
+- Auto-add Linear labels as GitHub labels
+- Auto-assign reviewers based on Linear project members
+
+### MCP vs CLI Preference
+- **Primary**: Use GitHub MCP for all operations when possible
+- **Fallback**: Use GitHub CLI only when MCP fails
+- **Never**: Direct git commands for remote operations
+
+### MCP Specific Troubleshooting
+- If PR creation fails: Check base branch exists on remote
+- If token issues: Verify scopes include `repo` permission
+- If validation errors: Ensure branch structure is correct
+
+## PRs, Commits and Code Eval
+
+### Evaluating Changed Code
+
+- Use `git` commands where appropriate
+- **But,** also use your own ability to traverse files 
+- **Don't write generic** descriptions - understand what the project is about, what changed files mean and evaluate changes top-down
+
+### When Asked to PR
+
+1. (Conditional) If a link is provided; first review it using **Linear MCP**
+2. Make sure on new feature branch
+3. Make sure main has been properly merged onto current branch (so that working on top of main)
+4. Aggregate all changed files
+5. Never add non-tracked files
+6. If tracked files aren't staged - **ask** if I want to stage them
+7. Create a description for changes that is concise and assumes collaborators know the repo
+8. Commit, push, create a PR with *above description*
+9. (Conditional) if *not issue was provided* - create a new issue
+10. **Add a comment** with a link to the afformentioned issue
+
+## Main Branches
+
+### main (or master)
+- Contains production-ready code
+- Never commit directly to main
+- Only accepts merges from:
+  - hotfix/* branches
+  - release/* branches
+- Must be tagged with version number after each merge
+
+## Supporting Branches
+
+### feature/*
+- Branch from: main or current (if already in a branch)
+- Naming convention: feature/descriptive-name
+- Example: feature/user-authentication
+- Must be up-to-date with `main` before creating PR
+
+## Commit Messages
+
+- Format: `type(scope): description`
+- Types:
+  - feat: New feature
+  - fix: Bug fix
+  - docs: Documentation changes
+  - style: Formatting, missing semicolons, etc.
+  - refactor: Code refactoring
+  - test: Adding tests
+  - chore: Maintenance tasks
+
+## Pull Request Rules
+
+1. All changes must go through Pull Requests
+2. Required approvals: minimum 1
+3. CI checks must pass
+4. No direct commits to protected branches (main, develop)
+5. Branch must be up to date before merging
+6. Delete branch after merge to `main`
+7. PRs should contain a comment with a link with the relevant issue from project management tool
+
+## Change Tracking and PR Messages
+1. Check if there are staged changes already
+2. Never `add --all` - use `add -u` and assume ask about staging new files
+3. Verify that local `main` is in sync to remote
+4. Iterate all staged files, check diffs versus current `main`
+5. My co workers are coding experts; don't write overly verbose PRs and don't overexplain diffs
+
+## Branch Protection Rules
+
+### main
+- Require pull request reviews
+- Require status checks to pass
+- Require branches to be up to date
+- No force pushes
+- No deletions

@@ -1,0 +1,39 @@
+---
+description: When interacting specifically with Linear for project management (during pull requests, for example)
+globs: 
+alwaysApply: false
+---
+---
+description: When interacting specifically with Linear for project management (during pull requests, for example)
+globs: 
+alwaysApply: false
+---
+
+## Project Specific
+### Linear:
+**Team And Project**
+- "teamId": ["your-team-id-here"]
+
+**Labels and Users**
+- *Always* use "AI" label for issues = {"id":"your-ai-label-id-here","name":"AI"}
+- *Always* add [your-user-id-here] as a collaborator on issues
+
+## General
+- Use Linear via MCP
+
+## Creating a New Issue
+- If can't infer relevant labels - ask for user clarfication and present the relevant labels
+- Unless explicitly stated otherwise; create issues with medium priority
+- Use the specified labels, teams, users etc. as instructed above
+- Try to assess the relevant issue labels based on current context
+
+## Reading Existing Issue
+- Use description, labels, priority, collaborators etc to understand the general context - as if you created the issue yourself
+- The information will be used along with code-specifics to create a thorough PR message
+
+## With Github-Linear Integration
+### Bidirectional Sync
+- When Linear issue moves to "In Progress": Auto-create feature branch
+- When Linear issue updated: Sync changes to linked PR description
+- When Linear issue closed: Auto-close linked PR if not merged
+- Auto-create Linear sub-issues for complex PRs (>500 lines changed)
